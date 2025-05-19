@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ChatService/.vs
+/ChatService/ChatService/obj
+/ChatService/ChatService.AppHost/obj
+/ChatService/ChatService.ServiceDefaults/obj
+/ChatService/ChatService.ServiceDefaults/bin/Debug/net8.0
+/ChatService/ChatService/bin/Debug/net8.0
+/ChatService/ChatService.AppHost/bin/Debug/net8.0
