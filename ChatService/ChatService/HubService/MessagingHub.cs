@@ -36,8 +36,8 @@ namespace ChatService.HubService
         {
             var message = new Message
             {
-                SenderId = Guid.Parse(Context.UserIdentifier!),
-                ReceiverId = Guid.Parse(toUserId),
+                SenderId = Context.UserIdentifier!,
+                ReceiverId = toUserId,
                 Content = messageText
             };
 

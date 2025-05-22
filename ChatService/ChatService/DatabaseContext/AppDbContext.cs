@@ -9,5 +9,10 @@ namespace ChatService.DatabaseContext
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Message> Messages => Set<Message>();
+
+        public DbSet<MessageAttachment> MessageAttachments => Set<MessageAttachment>();
+
+        public DbSet<MessageEmoji> MessageEmojis => Set<MessageEmoji>();
+
     }
 }

@@ -1,7 +1,9 @@
 ﻿using ChatService.DatabaseContext;
+using ChatService.Helper;
 using ChatService.HubService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,10 +27,12 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options => {
+    .AddJwtBearer(options =>
+    {
         options.Events = new JwtBearerEvents
         {
-            OnMessageReceived = context => {
+            OnMessageReceived = context =>
+            {
                 var accessToken = context.Request.Query["access_token"];
                 if (!string.IsNullOrEmpty(accessToken) &&
                     context.HttpContext.WebSockets.IsWebSocketRequest)
@@ -46,6 +50,14 @@ var mysqlConnection = builder.Configuration.GetConnectionString("Identitydb");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(mysqlConnection, new MySqlServerVersion(new Version(8, 0, 36))));
+
+var redis = builder.Configuration.GetConnectionString("Redis") ?? "";
+
+//var redisConnection = Configuration["ConnectionStrings:Redis"] ?? "";
+
+await RedisHelper.InitAsync(redis);
+
+Console.WriteLine("Redis connect string");
 
 
 var app = builder.Build();
