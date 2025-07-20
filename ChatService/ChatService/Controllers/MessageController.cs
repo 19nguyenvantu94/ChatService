@@ -64,7 +64,7 @@ public class MessagesController : ControllerBase
                     .WithObjectSize(file.Length)
                     .WithContentType(file.ContentType));
 
-                var fileUrl = $"https://your-r2-endpoint/chat-files/{objectName}";
+                var fileUrl = $"https://pub-7c8f0bae44cc46298416c9cd9f502349.r2.dev/chat-files/{objectName}";
                 attachments.Add(new MessageAttachment { FileUrl = fileUrl, Type = type });
             }
         }
