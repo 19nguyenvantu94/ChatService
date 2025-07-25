@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blazorapichat
+  namespace: multiapp
+
+  labels:
+    app: blazorapichat
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blazorapichat
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: blazorapichat
+    spec:
+      containers:
+      - name: blazorapichat
+        image: nguyenvantu/blazorapichat:e969bf402b6a75966b55a01efbeb2eecc2f636ac31a298ad42040bf89fcbe8d
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: https
+          containerPort: 8443
+        envFrom:
+        - configMapRef:
+            name: blazorapichat-env
+      terminationGracePeriodSeconds: 180
