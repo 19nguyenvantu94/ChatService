@@ -61,9 +61,11 @@ jobs:
 
       - name: Build Solution
         run: dotnet build --no-restore --configuration Release
+        working-directory: ChatService
 
       - name: Run Unit Tests
         run: dotnet test --no-build --configuration Release --logger trx --results-directory "TestResults"
+        working-directory: ChatService
 
       - name: Cache SonarQube Cloud packages
         uses: actions/cache@v4
