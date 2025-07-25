@@ -1,10 +1,9 @@
 name: Build Code
 
-on:
+on:  # <--- thêm để chạy khi có push trực tiếp
   pull_request:
     branches: [ "main" ]
     types: [opened, synchronize, reopened]
-
 jobs:
   build-test-sonar:
     runs-on: windows-latest
