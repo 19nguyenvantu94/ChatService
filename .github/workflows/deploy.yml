@@ -1,4 +1,4 @@
-name: Web Identity Deploy
+name: Service Deploy
 
 on:
   pull_request:
