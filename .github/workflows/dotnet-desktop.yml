@@ -56,7 +56,7 @@ jobs:
           key: ${{ runner.os }}-dotnet-${{ env.DOTNET_VERSION }}-nuget
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ChatService.sln
 
       - name: Build Solution
         run: dotnet build --no-restore --configuration Release
