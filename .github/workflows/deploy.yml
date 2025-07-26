@@ -47,4 +47,4 @@ jobs:
       run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ secrets.CLUSTER_NAME }}
 
     - name: Deploy to DigitalOcean Kubernetes
-      run: kubectl apply -k  ChatService/aspirate-output/blazorapichat/.
+      run: kubectl apply -k  ChatService/ChatService/aspirate-output/blazorapichat/.
