@@ -13,7 +13,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ChatService/ChatService.ServiceDefaults/ChatService.ServiceDefaults.csproj", "ChatService/ChatService.ServiceDefaults/"]
+COPY ["ChatService/ChatService/ChatService.csproj", "ChatService/"]
 COPY ChatService.sln .
 RUN dotnet restore "ChatService.sln"
 COPY . .
