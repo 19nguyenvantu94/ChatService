@@ -27,7 +27,7 @@ jobs:
       run: |
         docker build \
           --build-arg NUGET_CONFIG=./temp-nuget/nuget.config \
-          -f ChatService/ChatService/Dockerfile \
+          -f ChatService/Dockerfile \
           -t blazorapichat:$(echo $GITHUB_SHA | head -c7) .
 
     - name: Tag image  
