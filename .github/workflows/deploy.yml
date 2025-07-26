@@ -1,6 +1,8 @@
 name: Service Deploy
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
     types: [closed]
     branches:
