@@ -17,7 +17,7 @@ COPY ["ChatService/ChatService/ChatService.csproj", "ChatService/"]
 RUN dotnet restore "./ChatService/ChatService.csproj"
 COPY . .
 WORKDIR "/src/ChatService"
-RUN dotnet build "./ChatService/ChatService/ChatService.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./ChatService/ChatService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
