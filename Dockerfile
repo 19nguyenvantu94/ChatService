@@ -14,7 +14,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ChatService/ChatService/ChatService.csproj", "ChatService/"]
-RUN dotnet restore "./ChatService/ChatService/ChatService.csproj"
+RUN dotnet restore "./ChatService/ChatService.csproj"
 COPY . .
 WORKDIR "/src/ChatService"
 RUN dotnet build "./ChatService.csproj" -c $BUILD_CONFIGURATION -o /app/build
